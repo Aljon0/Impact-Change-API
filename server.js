@@ -1,11 +1,18 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
+import fs from 'fs';
 import Stripe from 'stripe';
 
 // Load environment variables
 dotenv.config();
 
+if (fs.existsSync('.env')) {
+    dotenv.config();
+    console.log(' Loaded local .env file');
+  } else {
+    console.log(' No .env file found, relying on Render environment variables');
+  }
 // Check if Stripe key is loaded
 if (!process.env.STRIPE_SECRET_KEY) {
   console.error('❌ STRIPE_SECRET_KEY not found in environment variables');
