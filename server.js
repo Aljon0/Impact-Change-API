@@ -5,10 +5,11 @@ import Stripe from 'stripe';
 
 
 // Check if Stripe key is loaded
-if (!process.env.STRIPE_SECRET_KEY) {
-  console.error('❌ STRIPE_SECRET_KEY not found in environment variables');
-  process.exit(1);
-}
+try {
+    await import('dotenv/config');
+  } catch (error) {
+    console.warn('⚠️ dotenv not loaded, using system environment variables');
+  }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const app = express();
