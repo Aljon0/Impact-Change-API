@@ -3,6 +3,8 @@ import 'dotenv/config'; // Add this line at the very top
 import express from 'express';
 import Stripe from 'stripe';
 
+// Load environment variables from .env file
+
 // Check if Stripe key is loaded
 if (!process.env.STRIPE_SECRET_KEY) {
   console.error('❌ STRIPE_SECRET_KEY not found in environment variables');
