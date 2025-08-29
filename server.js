@@ -1,15 +1,17 @@
 import cors from 'cors';
-import 'dotenv/config'; // Add this line at the very top
+import dotenv from 'dotenv';
 import express from 'express';
 import Stripe from 'stripe';
 
+// Load environment variables
+dotenv.config();
 
 // Check if Stripe key is loaded
-try {
-    await import('dotenv/config');
-  } catch (error) {
-    console.warn('⚠️ dotenv not loaded, using system environment variables');
-  }
+if (!process.env.STRIPE_SECRET_KEY) {
+  console.error('❌ STRIPE_SECRET_KEY not found in environment variables');
+  console.log('Available env vars:', Object.keys(process.env).filter(key => key.includes('STRIPE')));
+  process.exit(1);
+}
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const app = express();
