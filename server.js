@@ -162,7 +162,6 @@ const generateEmailHTML = (orderData) => {
           <!-- Logo/Header -->
           <div style="text-align: center; margin-bottom: 30px;">
               <img src="${logoUrl}" alt="Impact Change" style="max-height: 50px; max-width: 200px; display: block; margin: 0 auto;" onerror="this.style.display='none';" />
-              <div style="color: #666; font-size: 18px; margin-top: 10px; font-weight: bold;">Impact Change</div>
           </div>
 
           <!-- Main Title -->
