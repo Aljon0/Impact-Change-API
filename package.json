@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-"scripts": {
+  "scripts": {
     "dev": "node --watch --env-file=.env server.js",
     "start": "node server.js"
   },
@@ -15,6 +15,7 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "nodemailer": "^7.0.6",
     "stripe": "^18.5.0"
   }
 }
